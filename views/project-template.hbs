@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp.controllers">
+<head>
+    {{>headpart}}
+</head>
+<body>
+<div id="wrapper" ng-controller="oneproject">
+    {{>projectnav}}
+
+    <div id="content-project" class="project-content-view" >
+        <div id="left-column" class="scroll-area col-xs-9 col-md-9">
+
+            <ul class="list-group">
+                <li class="list-group-item col-md-6 col-xs-6">Ime projekta</li>
+                <li class="list-group-item col-md-6 col-xs-6">§namepro§</li>
+            </ul>
+
+            <table id="project-table" class="table">
+                <thead >
+                <tr>
+                    <th>#</th>
+                    <th>Naziv</th>
+                    <th>Budžet</th>
+                    <th>Troškovi</th>
+                    <th>Preostali iznos</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="kat in katran">
+                <tr id="§kat.kategorija.kategorija§">
+                    <td style="display:none"></td>
+                    <td class="§kat.kategorija.kategorija§1">§$index+1§</td>
+                    <td>§kat.kategorija.naziv§</td>
+                    <td>§kat.kategorija.budzet§</td>
+                    <td>§kat.kategorija.troskovi§</td>
+                    <td>§kat.kategorija.budzet + kat.kategorija.troskovi§</td>
+                </tr>
+                <tr class="transaction-row">
+                    <td colspan="6">
+                        <div class="span6">
+                            <table>
+                                <tbody ng-repeat="tran in kat.transakcije">
+                                <tr>
+                                    <td  style="display:none"></td>
+                                    <td>§tran.datum§</td>
+                                    <td>§tran.partner§</td>
+                                    <td>§tran.opis§</td>
+                                    <td>§tran.iznos§ HRK</td>
+                                    <td style="position: absolute; right: 5px; background-color: transparent" id="rowLink">
+                                        <div >
+                                            <button style="left: 20px" type="button" class="btn btn-primary remove-button" data-ng-click="removetran($parent.$index,$index,$event)"><span>-</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div id="right-column" class="scroll-area col-xs-3 col-md-3">
+            <div id="budget-content-form">
+
+
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="col-md-12 col-xs-12">
+        <footer>
+            <button type="button" class="btn btn-primary btn-sm footer-button" id="submit">Uredi</button>
+        </footer>
+    </div>
+</div>
+{{>onbodyend}}
+</body>
+</html>

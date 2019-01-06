@@ -1,0 +1,797 @@
+body {
+    height:100vh;
+    width: 100%;
+}
+
+table, tbody, th, td, tr{
+    height: 0;
+}
+
+select{
+    border: 1px solid #FF8C00;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* MAIN STYLESHEET TEMPLATE ================================================ */
+
+#wrapper {
+    height:100vh;
+    position:relative;
+}
+#header {
+    height: 40px;
+    background: #367ABD;
+
+}
+#content {
+    position: relative;
+    height: calc(100% - 100px);
+    width: 100%;
+}
+
+#content-project {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#left-column{
+    background-color: #eaeaea;
+}
+
+#right-column{
+    background-color: #dddddd;
+    font-size: 12px;
+}
+
+#footer {
+    display: block;
+    position: relative;
+    height:50px;
+    bottom:0;
+    left:0;
+    background: #367ABD;
+}
+
+/* NAVBAR STYLE ========================================================= */
+
+.navbar{
+    margin-bottom: 0;
+    border-radius: 0;
+    border-style: none;
+
+    background-color: #367ABD;
+}
+
+.navbar-brand img{
+    position: absolute;
+    top: 5px;
+    height: 80%;
+}
+
+.navbar-right{
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+.navbar-default .navbar-nav > li{
+    background-color: #FF8C00;
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a{
+    display: block;
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.navbar-default .navbar-nav > li a:hover{
+    background-color: #ecd83b;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav > li a:active{
+    background-color: #AF8F14;
+    color: white;
+    text-decoration: none;
+}
+
+/* REGISTRATION & LOGIN STYLE ================================================ */
+
+
+.submit-form{
+    padding-top: 15px;
+    color: #696969;
+}
+
+.content-header{
+    width: 50%;
+    height: 40px;
+    padding-top: 7px;
+    margin: 0 auto;
+
+    color: white;
+    background-color: #367ABD;
+
+    border-radius: 3px;
+    box-shadow: 0px 5px 10px #b0b0b0;
+}
+
+.content-form{
+    width: 70%;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.submit-form-fields{
+    margin-top: 20px;
+    height: 40px;
+}
+
+.submit-form-fields input{
+    border-style: none;
+    border-bottom: 1px solid #FF8C00;
+}
+
+.from-group{
+    padding-top: 30px;
+}
+
+.submit-form-fields-submit{
+    height: 20px;
+    margin-top: 70px;
+}
+
+#register-form-left{
+    display: block;
+    width: 50%;
+}
+
+#register-form-right{
+    display: block;
+    width: 50%;
+}
+
+#create-form .submit-form-fields input{
+    width: 200px;
+}
+
+#budget-content-form{
+    height: 0;
+}
+
+.budget-form div{
+    height: 30px;
+}
+
+.budget-form{
+    display: block;
+    margin: 0px auto 10px auto;
+    padding: 20px;
+    width: 100%;
+
+}
+
+.budget-content{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    display: block;
+}
+
+
+/* BUTTONS ========================================================= */
+
+.button-section{
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+#submit, #edit, #assign, #create {
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+    padding: 7px;
+    color: white;
+}
+
+#submit:hover, #edit:hover, #assign:hover, #create:hover{
+    background-color: #ECD83B;
+    color: white;
+    text-decoration: none;
+}
+
+#submit:active, #edit:active, #assign:active, #create:active{
+    background-color: #AF8F14;
+    color: white;
+    text-decoration: none;
+}
+
+#create a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+
+
+/* PROJECT LIST & TRANSACTION LIST FUNCTIONALITY ===================================== */
+
+.scroll-area{
+    display: block;
+    float:left;
+    overflow-y:scroll;
+    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.16);
+
+}
+
+.scroll-area::-webkit-scrollbar-track
+{
+    background-color: #F5F5F5;
+}
+
+.scroll-area::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.scroll-area::-webkit-scrollbar-thumb
+{
+    background-color: #aeaeae;
+}
+
+.repo-button{
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+    margin-top: 15px;
+}
+
+.footer-button{
+    margin: 12px 12px 0 0;
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.cp-button{
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+
+    width: 27px;
+    height: 27px;
+}
+
+.link-button{
+    position: absolute;
+    background-color: #367abd;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.link-button:hover{
+    background-color: #f3d626;
+}
+
+
+.repeatIBAN{
+    visibility: hidden;
+}
+.repeatIBAN input{
+    border-bottom-style: none;
+}
+
+
+.add-button, .remove-button{
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+}
+
+.remove-button{
+    background-color: #ff3526;
+}
+
+.add-button:hover, .remove-button:hover{
+    background-color: #f3d626;
+}
+
+/* PROJECT TEMPLATE TABLES ============================================================= */
+
+#project-table{
+    margin-top: 20px;
+}
+
+#project-table thead{
+    color: #ffffff;
+}
+
+#project-table thead th:nth-of-type(odd){
+    background-color: #367ABD;
+}
+
+#project-table thead th:nth-of-type(even){
+    background-color: #095a8e;
+}
+
+#project-table tbody #K{
+    background-color: #b1d9e7;
+}
+
+#project-table tbody #K:hover{
+    background-color: #ff8c00;
+    color: #ffffff;
+}
+
+.K1{
+    background-color: #ff8c00;
+    color: #ffffff;
+}
+
+#project-table tbody #P{
+    background-color: #c1e9f7;
+}
+
+#project-table tbody #P:hover td{
+    background-color: #ffc300;
+}
+
+.P1{
+    background-color: #ffc300;
+    color: #ffffff;
+}
+
+#transaction-table{
+    margin-top: 20px;
+    width: 95%;
+}
+
+#transaction-table thead{
+    color: #ffffff;
+}
+
+#transaction-table thead th:nth-of-type(odd){
+    background-color: #367ABD;
+}
+
+#transaction-table thead th:nth-of-type(even){
+    background-color: #095a8e;
+}
+
+#right-column .table-hover tbody th:nth-of-type(odd){
+    background-color: #d8edf3;
+}
+#right-column .table-hover tbody th:nth-of-type(even){
+    background-color: #b1d9e7;
+}
+
+#right-column .table-hover tbody td:nth-of-type(even){
+    background-color: #d8edf3;
+}
+#right-column .table-hover tbody td:nth-of-type(odd){
+    background-color: #b1d9e7;
+}
+
+#right-column .table-hover tbody tr:hover td, #right-column .table-hover tbody tr:hover th{
+    background-color: #ff8c00;
+    cursor: default;
+}
+
+.table-hover tbody tr td > input{
+    margin: 5px 0px 0px 2px;
+    width: 45%;
+    border: 1px solid orange;
+    color: black;
+}
+
+.table-hover tbody tr td > input::-webkit-outer-spin-button,
+.table-hover tbody tr td > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.budget-indicator tr th{
+    background-color: #095a8e;
+}
+
+.budget-indicator tr td{
+    background-color: #367ABD;
+}
+
+/* PROJECT TEMPLATE TABLES STYLESHEET =========================================== */
+
+#left-column .list-group{
+    height: 45px;
+    margin-top: 10px;
+}
+
+#left-column .list-group > li{
+    background-color: #095a8e;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 0 0 0;
+}
+#left-column .list-group > li:nth-of-type(even){
+    background-color: #367ABD;
+    color: #ffffff;
+}
+
+.list-group{
+    width: 95%;
+}
+
+#project-table{
+    width: 95%;
+}
+
+#project-table th{
+    color: #ffffff;
+}
+
+#project-table tbody .category-row{
+    background-color: transparent;
+}
+
+.transaction-row{
+    padding: 20px;
+}
+
+.transaction-row td{
+    background-color: #ffffff;
+    color: #367ABD;
+}
+
+.transaction-row tr:hover td{
+    background-color: #367abd;
+    color: #ffffff;
+}
+
+.transaction-row table tbody tr td{
+    padding-right: 30px;
+    padding-bottom: 10px;
+}
+
+#B{
+    background-color: #367abd;
+    color: #ffffff;
+}
+.B1{
+    background-color: #095a8e;
+    color: #ffffff;
+}
+
+#project-table tbody .transaction-row, #project-table tbody .transaction-row th{
+    background-color: transparent;
+    border-top: none;
+}
+
+.category-row td{
+    background-color: #b1d9e7;
+}
+.category-row th{
+    background-color: #ff8c00;
+}
+
+.category-row:hover td{
+    background-color: #ff8c00;
+    color: #ffffff;
+}
+
+.sub-category-row1 td{
+    background-color: #c1e9f7;
+}
+
+.sub-category-row1 th{
+    background-color: #ffa700;
+}
+
+.sub-category-row1:hover td{
+    background-color: #ffa700;
+    color: #ffffff;
+}
+
+.sub-category-row2 td{
+    background-color: #e0f1ff;
+}
+
+.sub-category-row2 th{
+    background-color: #f1bc39;
+}
+
+.sub-category-row2:hover td{
+    background-color: #f1bc39;
+    color: #ffffff;
+}
+
+/* PROJECT TRANSACTION STYLESHEET =============================================== */
+/* PROJECT TABLE -------------------------------------------------------------------------------------- */
+
+#project-edit-table{
+    margin-top: 20px;
+}
+
+#project-edit-table .listGroupTable td{
+    padding: 0;
+}
+
+#project-edit-table thead{
+    color: #ffffff;
+}
+
+#project-edit-table thead th:nth-of-type(odd){
+    background-color: #367ABD;
+}
+
+#project-edit-table thead th:nth-of-type(even){
+    background-color: #095a8e;
+}
+
+.selected{
+    background-color: #f3d626;
+}
+
+/* TRANSACTION TABLE -----------------------------------------------------------------------------------*/
+
+#right-column .table-hover tbody tr:hover{
+    background-color: transparent;
+}
+
+#transaction-edit-table tbody tr > #rowLink{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 2px 0 0 5px;
+}
+
+#transaction-edit-table tbody #rowLink:active tr{
+    background-color: red;
+}
+
+#transaction-edit-table{
+    margin-top: 20px;
+    width: 95%;
+}
+
+#transaction-edit-table thead{
+    color: #ffffff;
+}
+
+#transaction-edit-table thead th:nth-of-type(odd){
+    background-color: #367ABD;
+}
+
+#transaction-edit-table thead th:nth-of-type(even){
+    background-color: #095a8e;
+}
+
+#transaction-edit-table tbody tr:hover td, #transaction-edit-table tbody tr:hover th{
+    background-color: transparent;
+    color: #ffffff;
+}
+
+
+/* MODAL STYLESHEET =========================================== */
+
+.modal-message-height{
+    height: 100vh;
+}
+
+#confirmPT{
+    position: absolute;
+    display: block;
+    height: 75%;
+    width: 70%;
+    top: 10%;
+    left: 15%;
+    z-index: 3;
+
+    background-color: #ffffff;
+    border: 2px solid #367abd;
+    border-radius: 5px;
+}
+
+#confirmPT .close{
+    margin: 10px 10px 0 10px;
+    height: 0;
+}
+
+#confirmPT .col-md-12{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pt-list-area{
+    height: 78%;
+    width:100%;
+    display: block;
+    padding-top: 20px;
+}
+
+#confirmPT .message-area{
+    position: absolute;
+    bottom: 0;
+
+    height: 19%;
+    padding: 3.3%;
+
+    background-color: #367abd;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+#confirmPT .message-area label{
+    color: #ffffff;
+}
+
+#confirmPT .message-buttons{
+    padding-right: 200px;
+}
+
+#confirmPT .message-buttons #submit{
+    width: 50px;
+}
+
+#confirmationBackground{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.80);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.pt-section{
+    background-color: rgba(0,0,0,.03);
+    box-shadow: 0px 7px 8px 1px rgba(0, 0, 0, 0.4);
+}
+
+.pt-section{
+    display: table;
+    width: 90%;
+    height: 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.pt-rows{
+    display: table-row;
+    padding-top: 10px;
+}
+
+.pt-col{
+    display: table-cell;
+    text-align: center;
+    vertical-align:middle;
+    padding: 1em;
+    height: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+.cell-1{
+    background-color: #18a3d5;
+}
+.cell-2{
+    background-color: #b1d9e7;
+}
+.cell-3{
+    background-color: #e0f1ff;
+}
+
+/* BUTTONS, ERRORS & WARNING MESSAGES =========================================== */
+
+
+.back-button{
+    border-radius: 9999px;
+    background-color: #FF8C00;
+    border-style: none;
+    color: white;
+}
+.project-navbar .navbar-nav > li{
+    background-color: transparent;
+    color: white;
+}
+
+.project-navbar .navbar-nav > li > a{
+    display: block;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: -3px;
+}
+
+.project-navbar .navbar-nav > li a:hover{
+    background-color: transparent;
+    color: white;
+}
+
+.project-navbar .navbar-nav > li a:active{
+    background-color: transparent;
+    color: white;
+}
+
+.error-h1{
+    font-weight: 800;
+    font-size: 20px;
+    color: red;
+    padding: 10px;
+}
+
+.error-m{
+    font-weight: 500;
+    font-size: 20px;
+    color: red;
+    padding: 10px;
+}
+
+.warning-message{
+    display: block;
+    visibility: hidden;
+    height: 60px;
+
+    padding: 12px;
+    top: 60px;
+
+    background-color: whitesmoke;
+    border: 1px solid #367ABD;
+
+    box-shadow: 1px 1px 2px #888888;
+}
+
+.cp-warning-msg{
+    visibility: hidden;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    height: 100px;
+    background-color: #e8e8e8;
+    border: 2px solid #ff4034;
+
+    padding: 20px;
+}
+
+.add-category-btn{
+    width: 100%;
+    padding: 6px;
+    background-color: transparent;
+    border: 2px dashed orange;
+    color: orange;
+    font-weight: bold;
+}
+
+.add-category-btn:hover{
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+#right-column form input{
+    margin-top: 15px;
+    padding: 7px;
+    background-color: #FF8C00;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+}
+
+/*===================================================================================*/
+/* BUTTON ACTIONS ===================================================================*/
+/*===================================================================================*/
+
+.disenable{
+    display:none;
+}

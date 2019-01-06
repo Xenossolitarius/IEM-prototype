@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<html>
+<head>
+    {{>headpart}}
+</head>
+<body>
+<div id="wrapper">
+    {{>iemnav}}
+
+    <div id="content">
+        <div class="submit-form">
+            <h3 class="content-header text-center">PRIJAVA</h3>
+
+            <form id="login-form" class="content-form text-center" ng-controller="LoginCtrl">
+                <div class="submit-form-fields form-group row">
+                    <label for="user-name-email" class="col-sm-12 form-control-label">Korisničko ime ili email</label>
+                    <div class="col-sm-12">
+                        <input type="text" name="user-name-email" id="user-name-email" value="" ng-model="usernameemail"><br>
+                    </div>
+                </div>
+                <div class="submit-form-fields form-group row">
+                    <label for="password" class="col-sm-12 form-control-label">Lozinka</label>
+                    <div class="col-sm-12">
+                        <input type="password" name="password" id="password" value="" ng-model="password"><br>
+                    </div>
+                </div>
+
+                <div class="submit-form-fields-submit form-group row">
+                    <div class="button-section">
+                        <button type="button" name="login" id="submit" ng-click="sendLogin()">Prijavi se</button>
+                    </div>
+                    <div class="warning-message col-md-12 col-lg-12 text-center" ng-style="showMsg">
+                        <span ng-bind-html="insertHTML"></span><br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>onbodyend}}
+</body>
+</html>

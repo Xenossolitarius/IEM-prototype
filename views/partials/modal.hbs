@@ -1,0 +1,46 @@
+<script type="text/ng-template" id="modal.hbs">
+    <div class="modal fade modal-message-height" data-control-modal="modal.hbs" data-backdrop="static">
+        <div class="modal-dialog" id="confirmPT">
+            <form>
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div  class="pt-list-area scroll-area col-md-12 col-xs-12">
+                    <div class="pt-section">
+                        <ul class="project-row pt-rows col-xs-4 col-md-4">
+                            <li class="pt-col cell-1">
+                                <div>§posttrans[0].datum§</div>
+                            </li>
+                            <li class="pt-col cell-2">
+                                <div>Ljudski resursi</div>
+                            </li>
+                          <!-- <li class="pt-col cell-3">
+                                <div>Plaće</div>
+                            </li>-->
+                        </ul>
+                        <ul class="transaction-row pt-rows col-xs-8 col-md-8">
+                            <li class="pt-col cell-2">
+                                02.01.2017
+                            </li>
+                            <li class="pt-col cell-3">
+                                GORAN AKRAP
+                            </li>
+                            <li class="pt-col cell-2">
+                                PN za srpanj i kolovz 2016
+                            </li>
+                            <li class="pt-col cell-3" style="color: red;">
+                                -14269.3 HRK
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="message-area from-group col-md-12 col-xs-12">
+                    <label>Pohraniti promjene?</label>
+                    <div class="message-buttons pull-right">
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary" id="submit" data-dismiss="modal">DA</button>
+                        <button type="button" ng-click="close('No')" class="btn btn-primary" id="submit" data-dismiss="modal">NE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    {{>headpart}}
+</head>
+<body>
+<div id="wrapper">
+    {{>iemnav}}
+
+    <div id="content">
+        <div id="left-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <table id="project-table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Naziv</th>
+                    <th>Trajanje</th>
+                    <th>Iznos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="project in projects" ng-click="showProject(project)">
+                    <td><a ng-href="#/project-list/{{project.id}}">{{project.name}}</a></td>
+                    <td>{{project.duration}}</td>
+                    <td>{{project.amount}}</td>
+                </tr>
+                <tr>
+                    <td>Klub mladih Split</td>
+                    <td>od 01.02.2016, 610 dana</td>
+                    <td>100000,00 HRK</td>
+                </tr>
+                <tr>
+                    <td>Festival Mediteran Filma</td>
+                    <td>od 01.08.2017, 30 dana</td>
+                    <td>17300,00 HRK</td>
+                </tr>
+                <tr>
+                    <td>Aktivizam mladih Split</td>
+                    <td>od 31.07.2017, 540 dana</td>
+                    <td>12750,00 HRK</td>
+                </tr>
+                <tr>
+                    <td>Aktivizam mladih Split</td>
+                    <td>od 31.07.2017, 540 dana</td>
+                    <td>12750,00 HRK</td>
+                </tr>
+                <tr>
+                    <td>Aktivizam mladih Split</td>
+                    <td>od 31.07.2017, 540 dana</td>
+                    <td>12750,00 HRK</td>
+                </tr>
+                <tr>
+                    <td>Aktivizam mladih Split</td>
+                    <td>od 31.07.2017, 540 dana</td>
+                    <td>12750,00 HRK</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm repo-button col-md-offset-5 col-xs-offset-5" id="submit">Repozitorij</button>
+        </div>
+        <div id="right-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <table id="transaction-table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Partner</th>
+                    <th>Opis</th>
+                    <th>Iznos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+                <tr>
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="footer" class="col-md-12 col-xs-12">
+        <footer>
+            <button type="button" class="btn btn-primary btn-sm footer-button" id="submit" data-toggle="modal" data-target="addProject">Dodaj projekt</button>
+            <button type="button" class="btn btn-primary btn-sm footer-button" id="submit">Uredi</button>
+        </footer>
+    </div>
+</div>
+
+{{>onbodyend}}
+</body>
+</html>

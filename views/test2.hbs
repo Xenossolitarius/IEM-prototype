@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="myApp">
+<html>
+<head>
+
+    <title>Socket.IO chat</title>
+
+
+    <style>
+        body { font: 13px Helvetica, Arial; }
+
+    </style>
+</head>
+
+<body>
+<div ng-controller="AppCtrl">
+    <form ng-submit="sendMessage()">
+        <input id="something" autocomplete="off" /><button>Send</button>
+    </form>
+    <b></b>
+    <p id="container">
+        Ode ide nesto....
+    </p>
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="filetoupload"><br>
+        <input type="submit">
+    </form>
+</div>
+{{>onbodyend}}
+</body>
+</html>

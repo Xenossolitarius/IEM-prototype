@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    {{>headpart}}
+</head>
+<body>
+<div id="wrapper">
+    {{>iemnav}}
+
+    <div id="content" ng-controller="listProjectGroups">
+        <div id="left-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="span12 row-fluid">
+                <table id="project-edit-table" class="table table-hover table-condensed table-striped">
+                    <thead class="levelOne">
+                    <tr>
+                        <th>Naziv</th>
+                        <th>Trajanje</th>
+                        <th>Iznos</th>
+                    </tr>
+                    </thead>
+                    <tbody data-ng-repeat="storedata in storeDataModel.storedata" data-ng-switch on="listGroupCollapse[$index]">
+                    <tr class="clickableRow" title="Click to toggle collapse/expand day summaries for this store." data-ng-click="selectTableRow($index, storedata.store.storeId)" >
+                        <td>§storedata.store.storeId§</td>
+                        <td>§storedata.store.storeName§</td>
+                        <td>§storedata.data.costTotal§</td>
+                    </tr>
+                    <tr class="listGroupTable" data-ng-switch-when="true">
+                        <td colspan="9">
+                            <div class="span9">
+                                <table id="category-table" class="table table-hover table-condensed table-striped">
+                                    <thead class="levelTwo">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Naziv</th>
+                                        <th>Budžet</th>
+                                        <th>Troškovi</th>
+                                        <th>Preostali iznos</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="first-category">
+                                    <tr id="li-table-rows" data-ng-repeat="dayData in storeDataModel.storedata[$index].data.dayData">
+                                        <td class="rowNum" ng-init="dayData.isyellow = false" ng-class="{selected : dayData.isyellow}" ng-click="dayData.isyellow =!dayData.isyellow">§dayData.employeesHoursSum§</td>
+                                        <td ng-init="dayData.isyellow = false" ng-class="{selected : dayData.isyellow}" ng-click="dayData.isyellow =!dayData.isyellow">§dayData.employees§</td>
+                                        <td ng-init="dayData.isyellow = false" ng-class="{selected : dayData.isyellow}" ng-click="dayData.isyellow =!dayData.isyellow">§dayData.cost§</td>
+                                        <td ng-init="dayData.isyellow = false" ng-class="{selected : dayData.isyellow}" ng-click="dayData.isyellow =!dayData.isyellow">§dayData.sales§</td>
+                                        <td ng-init="dayData.isyellow = false" ng-class="{selected : dayData.isyellow}" ng-click="dayData.isyellow =!dayData.isyellow">§dayData.revenue§</td>
+                                    </tr>
+                                    <tr data-ng-switch-when="true">
+                                        <td colspan="9">
+                                            <div class="span9">
+                                                <table class="table table-hover table-condensed table-striped">
+                                                    <thead class="levelThree">
+                                                    <tr>
+                                                        <th>Naziv</th>
+                                                        <th>Budžet</th>
+                                                        <th>Troškovi</th>
+                                                        <th>Preostali iznos</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="second-category">
+                                                    <tr id="li-table-rows" data-ng-repeat="someData in storeDataModel.storedata[$index].data.dayData.someData">
+                                                        <td class="rowNum">§someData.employeesHoursSum§</td>
+                                                        <td>§someData.jebiga§</td>
+                                                        <td>§someData.josnes§</td>
+                                                        <td>§someData.sala§</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="right-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <button type="button" class="btn btn-primary btn-sm repo-button col-md-offset-5 col-xs-offset-5" id="submit">
+                <span class="glyphicon glyphicon-upload"></span>&nbsp;Upload
+            </button>
+
+            <table id="transaction-edit-table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Partner</th>
+                    <th>Opis</th>
+                    <th>Iznos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-controller="hoverLink" ng-mouseover="open=true" ng-mouseleave="open=false">
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button" ng-show="open"><span class="glyphicon glyphicon-link"></span></button></td>
+                </tr>
+
+                <tr ng-controller="hoverLink" ng-mouseover="open=true" ng-mouseleave="open=false">
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button" ng-show="open"><span class="glyphicon glyphicon-link"></span></button></td>
+                </tr>
+                <tr ng-controller="hoverLink" ng-mouseover="open=true" ng-mouseleave="open=false">
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button" ng-show="open"><span class="glyphicon glyphicon-link"></span></button></td>
+                </tr>
+                <tr ng-controller="hoverLink" ng-mouseover="open=true" ng-mouseleave="open=false">
+                    <th scope="row">01.02.2017.</th>
+                    <td>Nikola Kavezić</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>3322,00 HRK</td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button" ng-show="open"><span class="glyphicon glyphicon-link"></span></button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="footer" class="col-md-12 col-xs-12">
+        <footer>
+            <button type="button" class="btn btn-primary btn-sm footer-button" id="submit">Zaključi</button>
+        </footer>
+    </div>
+</div>
+
+{{>onbodyend}}
+</body>
+</html>

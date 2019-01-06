@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html ng-app="myApp.controllers">
+<head>
+    {{>headpart}}
+    <link href="style/testtable.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper" ng-controller="showTables">
+    {{>iemnav}}
+
+    <div id="content" >
+
+        <div id="left-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <table id="projectEditTable" class="table" >
+                <thead >
+                <tr>
+                    <th>Naziv</th>
+                    <th style="width:23%">Trajanje</th>
+                    <th style="width: 25%">Iznos</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="project in projects">
+
+                <tr class="clickableRow" data-ng-click="projectclick($index,$event)">
+                    <td style="display: none">§project.projekt.id§</td>
+                    <td>§project.projekt.naziv§</td>
+                    <td>§project.projekt.trajanje§</td>
+                    <td>§project.projekt.iznos§</td>
+                </tr>
+
+                <tr id="categoryTable">
+                    <td colspan="5">
+                        <div ng-show="projectshow[$index]"  class="span5">
+
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Naziv</th>
+                                    <th>Budžet</th>
+                                    <th>Troškovi</th>
+                                    <th>Preostali iznos</th>
+                                </tr>
+                                </thead>
+
+                                <tbody  ng-repeat="kategorija in project.kategorija">
+                                <tr id="§kategorija.vrstakat§"   ng-style="getStyle($parent.$index,$index)" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" data-ng-click="categoryclick($parent.$index,$index,$event)" >
+
+                                    <td style="display:none">§kategorija.id_kat§</td>
+                                    <td class="§kategorija.vrstakat§1">§kategorija.brojkat§</td>
+                                    <td>
+                                        <div ng-hide="hidekatnaziv[$parent.$index+' '+$index ]">§kategorija.naziv§</div>
+                                        <div ng-show="editkatnaziv[$parent.$index+' '+$index ]" ><input type="text"  value="§kategorija.naziv§" style="color: #000000; position: absolute; margin-top: -3px; width: 33%" ng-model="kategorija.naziv" ></div>
+                                    </td>
+                                    <td>
+                                        <div ng-hide="hidekatbudzet[$parent.$index+' '+$index ]">§kategorija.budzet§</div>
+                                        <div ng-show="editkat[$parent.$index+' '+$index]"><input type="number" value="§kategorija.budzet§" step="0.01" style="color: #000000; position: absolute; margin-top: -3px; width: 15%" ng-model="kategorija.budzet" ></div>
+                                    </td>
+                                    <td>§kategorija.troskovi§</td>
+                                    <td>§kategorija.preostaliiznos§</td>
+
+                                    <td id="rowLink" >
+                                        <div style="position: absolute">
+                                            <button data-ng-if="kategorija.vrstakat === 'K' && stanje == 2 " ng-show="hoverEdit" type="button" class="btn btn-primary add-button" data-ng-click="addpodkat($parent.$parent.$index,$index,$event);$event.stopPropagation()"><span>+</span></button>
+                                            <button data-ng-if=" stanje == 2  " ng-show="hoverEdit" style="left: 20px" type="button" class="btn btn-primary remove-button" data-ng-click="removepodkat($parent.$parent.$index,$index,$event);$event.stopPropagation()"><span>-</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot class="budget-indicator" colspan="3">
+                                <tr data-ng-if="stanje == 2 " ng-show="addcatbottun">
+                                    <td colspan="5" style="background-color: transparent">
+                                        <button  type="button" class="add-category-btn" data-ng-click="addkat($index,$event)">Dodaj kategoriju</button>
+                                    </td>
+                                </tr>
+                                <tr  class="span3">
+
+                                    <td style="display: none">§project.budzet.id_budzet§</td>
+                                    <th ng-style="getStyleBudz(0,$index,categorybudz)">Budžet</th>
+                                    <td ng-style="getStyleBudz(0,$index,categorybudz)"data-ng-click="budgetclick(0,$index,$event)" class="text-right">§project.budzet.iznos§</td>
+
+
+                                    <td style="display:none">§project.budzet.id_prebudzet§</td>
+                                    <th ng-style="getStyleBudz(1,$index,categorybudz)">Preostali Budžet</th>
+                                    <td ng-style="getStyleBudz(1,$index,categorybudz)" data-ng-click="budgetclick(1,$index,$event)"colspan="2" class="text-right">§project.budzet.preiznos§</td>
+
+                                </tr>
+
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="right-column" class="scroll-area col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <form style="height: 80px" action="upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="filetoupload">
+                <input type="submit">
+            </form>
+
+            <table id="transaction-edit-table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Partner</th>
+                    <th>Opis</th>
+                    <th>Iznos</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="trans in transactions">
+                <tr ng-mouseover="hoverInTran($index)" ng-mouseleave="hoverOutTran($index)"  data-ng-click="transclick($index,$event)">
+                    <th  style="display:none">§trans.about.id_tran§</th>
+                    <td ng-style="getStyleTran($index,category)">§trans.about.datum§</td>
+                    <td ng-style="getStyleTran($index,category)">§trans.about.partner§</td>
+                    <td ng-style="getStyleTran($index,category)">§trans.about.opis§</td>
+                    <td style="color: §trans.about.color§; width:20%" ng-style="getStyleTran($index,category)">
+                        <div  ng-hide="hidetran[$index]">§trans.about.iznos§ HRK</div>
+                        <div  ng-show="showtran[$index]"><input type="number"value="§trans.about.iznos§" step="0.01" style="color: #000000; position: absolute; margin-top: -4px; width: 12%" ng-model="trans.about.iznos"></div>
+                    </td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button"  ng-show="openlink[$index]" data-ng-click="linkpress($index,$event);$event.stopPropagation()"><span class="glyphicon glyphicon-link"></span></button></td>
+                    <td id="rowLink"><button type="button" class="btn btn-primary link-button"   ng-show="openremove[$index]" data-ng-click="removetranclick($index,$event)"><span class="glyphicon glyphicon-remove"></span></button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="footer" class="col-md-12 col-xs-12">
+        <footer>
+            <button type="button" value="addProject" class="btn btn-primary btn-sm footer-button §buttonEnable[0]§" id="create"><a href="create-project">Dodaj projekt</a></button>
+            <button type="button" value="editPT" class="btn btn-primary btn-sm footer-button §buttonEnable[1]§" id="edit" data-ng-click="changestate(2)">Uredi projekte i kategorije</button>
+            <button type="button" value="closure" class="btn btn-primary btn-sm footer-button  §buttonEnable[2]§" id="submit" data-ng-click="changestate(1)">Zaključi projekte i kategorije</button>
+            <button type="button" value="assignT" class="btn btn-primary btn-sm footer-button §buttonEnable[3]§" id="assign" data-ng-click="changestate(3)">Pridjeli transakcije</button>
+            <button type="button" value="closeAssign" class="btn btn-primary btn-sm footer-button §buttonEnable[4]§" id="submit" data-toggle="modal" data-target="#example" data-ng-click="changestate(4);" >Zaključi transakcije</button>
+            <button type="button" value="closeAssign" class="btn btn-primary btn-sm footer-button §buttonEnable[5]§" id="submit" data-ng-click="changestate(5)">Odbaci promjene</button>
+        </footer>
+        <div class="modal" id="example">
+            <div class="modal-content" id="confirmPT">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-dialog pt-list-area scroll-area">
+
+                    <div class="pt-section" ng-repeat="posttran in posttrans">
+                        <ul class="project-row pt-rows col-xs-4 col-md-4">
+                            <li class="pt-col cell-1">
+                                <div>§posttran.imeprojekta§</div>
+                            </li>
+                            <li class="pt-col cell-2">
+                                <div>§posttran.kategorija§</div>
+                            </li>
+                        </ul>
+                        <ul class="transaction-row pt-rows col-xs-8 col-md-8">
+                            <li class="pt-col cell-2">
+                                §posttran.datum§
+                            </li>
+                            <li class="pt-col cell-3">
+                                §posttran.partner§
+                            </li>
+                            <li class="pt-col cell-2">
+                                §posttran.opis§
+                            </li>
+                            <li class="pt-col cell-3" style="color: red;">
+                                §posttran.iznos§ HRK
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="message-area from-group col-md-12 col-xs-12">
+                    <label>Pohraniti promjene?</label>
+                    <div class="message-buttons pull-right">
+                        <button type="button" ng-click="linkserverpost(); close('Yes')" class="btn btn-primary" id="submit" data-dismiss="modal">DA</button>
+                        <button type="button" ng-click="changestate(5)" class="btn btn-primary" id="submit" data-dismiss="modal">NE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{{>onbodyend}}
+</body>
+</html>

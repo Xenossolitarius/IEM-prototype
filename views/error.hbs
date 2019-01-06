@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{>headpart}}
+    <title>Intelligent Project Manager</title>
+</head>
+<body>
+{{>iemnav}}
+
+<h1 class="error-h1">{{message}}</h1>
+<h2 class="error-m">{{error.status}}</h2>
+<pre class="error-stat">{{error.stack}}</pre>
+
+{{>onbodyend}}
+</body>
+</html>
